@@ -1,0 +1,38 @@
+export const seedReviews = [
+  {
+    id: "r1",
+    author: "Maya R.",
+    vehicle: "Aurora GT",
+    rating: 5,
+    date: "2026-06-18",
+    title: "Road trips finally stress-free",
+    body: "Did 1,100 km over a weekend with two charge stops. The route planner is accurate to within 3% and the seats are superb.",
+  },
+  {
+    id: "r2",
+    author: "Daniel K.",
+    vehicle: "Lumen X",
+    rating: 4,
+    date: "2026-05-02",
+    title: "Great family EV, average software",
+    body: "Third row is usable for adults on short trips. Infotainment needed two updates before CarPlay stopped dropping out.",
+  },
+  {
+    id: "r3",
+    author: "Priya S.",
+    vehicle: "Cirro E",
+    rating: 5,
+    date: "2026-04-11",
+    title: "Perfect city car",
+    body: "Charging at home twice a week covers my commute. Real-world 350 km in summer, around 300 km in winter.",
+  },
+  {
+    id: "r4",
+    author: "Tom H.",
+    vehicle: "Tundra Volt",
+    rating: 4,
+    date: "2026-03-27",
+    title: "Towing is the real test",
+    body: "Range drops roughly 40% with a 2t trailer, which is expected. Vehicle-to-load powered my whole site for a day.",
+  },
+];

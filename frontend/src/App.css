@@ -1,0 +1,190 @@
+@import "tailwindcss" ;
+@source "../src";
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * EVNexus design system.
+ * Palette: #a7ebf2 #54acbf #26658c #023859 #011c40
+ * Light, radiant glassmorphism surfaces.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-aqua: var(--aqua);
+  --color-teal: var(--teal);
+  --color-ocean: var(--ocean);
+  --color-deep: var(--deep);
+  --color-midnight: var(--midnight);
+  --color-background-accent: var(--background-accent);
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 1rem;
+
+  --aqua: oklch(0.897 0.068 204.1); /* #a7ebf2 */
+  --teal: oklch(0.698 0.088 213.8); /* #54acbf */
+  --ocean: oklch(0.485 0.089 239.7); /* #26658c */
+  --deep: oklch(0.327 0.078 243.1); /* #023859 */
+  --midnight: oklch(0.231 0.077 256.1); /* #011c40 */
+
+  --background: oklch(0.983 0.009 247.9); /* #f5faff */
+  --foreground: oklch(0.231 0.077 256.1);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.231 0.077 256.1);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.231 0.077 256.1);
+  --primary: oklch(0.485 0.089 239.7);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.698 0.088 213.8);
+  --secondary-foreground: oklch(0.231 0.077 256.1);
+  --muted: oklch(0.955 0.018 220);
+  --muted-foreground: oklch(0.52 0.05 245);
+  --accent: oklch(0.897 0.068 204.1);
+  --accent-foreground: oklch(0.231 0.077 256.1);
+  --background-accent: oklch(0.327 0.078 243.1);
+  --destructive: oklch(0.58 0.2 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.885 0.03 215);
+  --input: oklch(0.9 0.025 215);
+  --ring: oklch(0.698 0.088 213.8);
+}
+
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    background-color: var(--color-background);
+    background-image:
+      radial-gradient(60rem 40rem at 8% -8%, color-mix(in oklab, var(--aqua) 55%, transparent), transparent 70%),
+      radial-gradient(50rem 38rem at 100% 4%, color-mix(in oklab, var(--teal) 38%, transparent), transparent 70%),
+      radial-gradient(55rem 45rem at 50% 110%, color-mix(in oklab, var(--ocean) 22%, transparent), transparent 72%);
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@utility glass {
+  background: color-mix(in oklab, white 62%, transparent);
+  border: 1px solid color-mix(in oklab, white 70%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, white 80%, transparent) inset,
+    0 18px 45px -20px color-mix(in oklab, var(--deep) 38%, transparent);
+}
+
+@utility glass-dark {
+  background: color-mix(in oklab, var(--midnight) 72%, transparent);
+  border: 1px solid color-mix(in oklab, var(--aqua) 22%, transparent);
+  backdrop-filter: blur(18px) saturate(140%);
+  color: white;
+}
+
+@utility glass-panel {
+  background: linear-gradient(
+    140deg,
+    color-mix(in oklab, white 72%, transparent),
+    color-mix(in oklab, var(--aqua) 26%, transparent)
+  );
+  border: 1px solid color-mix(in oklab, white 65%, transparent);
+  backdrop-filter: blur(22px) saturate(150%);
+  box-shadow: 0 24px 60px -26px color-mix(in oklab, var(--deep) 45%, transparent);
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--ocean), var(--teal) 60%, var(--deep));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------------- Dark theme ---------------- */
+
+.dark {
+  --background: oklch(0.191 0.045 256.1); /* deep navy canvas */
+  --foreground: oklch(0.965 0.015 220);
+  --card: oklch(0.262 0.055 250);
+  --card-foreground: oklch(0.965 0.015 220);
+  --popover: oklch(0.262 0.055 250);
+  --popover-foreground: oklch(0.965 0.015 220);
+  --primary: oklch(0.698 0.088 213.8);
+  --primary-foreground: oklch(0.191 0.045 256.1);
+  --secondary: oklch(0.485 0.089 239.7);
+  --secondary-foreground: oklch(0.965 0.015 220);
+  --muted: oklch(0.3 0.05 248);
+  --muted-foreground: oklch(0.76 0.035 220);
+  --accent: oklch(0.897 0.068 204.1);
+  --accent-foreground: oklch(0.231 0.077 256.1);
+  --background-accent: oklch(0.231 0.077 256.1);
+  --destructive: oklch(0.62 0.19 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.38 0.05 240);
+  --input: oklch(0.38 0.05 240);
+  --ring: oklch(0.698 0.088 213.8);
+}
+
+.dark body {
+  background-image:
+    radial-gradient(60rem 40rem at 8% -8%, color-mix(in oklab, var(--teal) 22%, transparent), transparent 70%),
+    radial-gradient(50rem 38rem at 100% 4%, color-mix(in oklab, var(--ocean) 26%, transparent), transparent 70%),
+    radial-gradient(55rem 45rem at 50% 110%, color-mix(in oklab, var(--aqua) 10%, transparent), transparent 72%);
+}
+
+.dark .glass {
+  background: color-mix(in oklab, var(--midnight) 62%, transparent);
+  border: 1px solid color-mix(in oklab, var(--aqua) 16%, transparent);
+  box-shadow:
+    0 1px 0 0 color-mix(in oklab, var(--aqua) 10%, transparent) inset,
+    0 18px 45px -20px oklch(0 0 0 / 0.55);
+}
+
+.dark .glass-panel {
+  background: linear-gradient(
+    140deg,
+    color-mix(in oklab, var(--deep) 70%, transparent),
+    color-mix(in oklab, var(--ocean) 42%, transparent)
+  );
+  border: 1px solid color-mix(in oklab, var(--aqua) 18%, transparent);
+  box-shadow: 0 24px 60px -26px oklch(0 0 0 / 0.6);
+}
+
+.dark .text-gradient {
+  background: linear-gradient(100deg, var(--aqua), var(--teal) 60%, var(--aqua));
+}
